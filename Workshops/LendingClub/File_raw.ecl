@@ -1,5 +1,5 @@
 ﻿EXPORT File_Raw := MODULE
-  Layout := RECORD
+  EXPORT Layout := RECORD
     STRING field1;
     STRING id;
     STRING loan_amnt;
@@ -147,6 +147,8 @@
   EXPORT Dataset_raw := DATASET('~desafio::lendingclub::hmw::loan_status_2007-2020q3.csv',Layout,CSV(HEADING(1)));
 END;
 // OUTPUT(Dataset_raw(loan_amnt='5000'));
+
+
 
 
 

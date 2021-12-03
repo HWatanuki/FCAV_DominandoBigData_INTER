@@ -8,7 +8,8 @@ EXPORT Prep01 := MODULE
    UNSIGNED4 rnd; // A random number
   END;
  // Clean the data and assign a random number to each record
-	CleanFilter := Lendings.last_fico_range_high <> 0 AND Lendings.last_fico_range_high <> 0;
+	// CleanFilter := Lendings.last_fico_range_high <> 0 AND Lendings.last_fico_range_low <> 0;
+	CleanFilter := Lendings.loan_amnt <> 0 AND Lendings.fico_range_low <> 0;
 
   EXPORT myDataE := PROJECT(Lendings(CleanFilter), TRANSFORM(MLPropExt, 
                                                              SELF.rnd := RANDOM(),

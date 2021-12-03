@@ -15,14 +15,14 @@ ML_Core.ToField(myTestIDData, myTestDataNF);
 //* <-- Delete the first forward slash (/) just before the asterisk (*) to comment out the entire MODULE
 EXPORT Convert02 := MODULE
    //We have 4 independent fields and the last field (5) is the dependent
-   EXPORT myIndTrainDataNF := myTrainDataNF(number < 5); // Number is the field number
-   EXPORT myDepTrainDataNF := PROJECT(myTrainDataNF(number = 5), 
-                                      TRANSFORM(RECORDOF(LEFT), 
+   EXPORT myIndTrainDataNF := myTrainDataNF(number < 8); // Number is the field number
+   EXPORT myDepTrainDataNF := PROJECT(myTrainDataNF(number = 8), 
+                                      TRANSFORM(ML_Core.Types.DiscreteField, 
                                                 SELF.number := 1,
                                                 SELF := LEFT));
-   EXPORT myIndTestDataNF := myTestDataNF(number < 5); // Number is the field number
-   EXPORT myDepTestDataNF := PROJECT(myTestDataNF(number = 5), 
-                                     TRANSFORM(RECORDOF(LEFT), 
+   EXPORT myIndTestDataNF := myTestDataNF(number < 8); // Number is the field number
+   EXPORT myDepTestDataNF := PROJECT(myTestDataNF(number = 8), 
+                                     TRANSFORM(ML_Core.Types.DiscreteField, 
                                                SELF.number := 1,
                                                SELF := LEFT));
    																									
